@@ -1,0 +1,33 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.link {
+    color: #fff;
+}
+
+.link:hover {
+    color: #fff;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    background-color: blueviolet;
+}
+
+/* Stops the float property from affecting content after the columns */
+.columns:after {
+    content: "";
+    display: table;
+    clear: both;
+
+}
+
+.titre {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+}
