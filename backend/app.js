@@ -5,8 +5,8 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var widgetRouter = require("./routes/widget");
 var gamesRouter = require("./routes/games");
+var streamsRouter = require("./routes/streams");
 
 var app = express();
 
@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/widget", widgetRouter);
 app.use("/games", gamesRouter);
+app.use("/streams", streamsRouter);
 
 module.exports = app;
