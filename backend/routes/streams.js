@@ -21,7 +21,7 @@ router.delete("/delete/:streamId", deleteStream)
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
-    res.send(streams);
+    res.status(200).json({ streams });
 });
   
 ///////////////////GET TOP 5 STREAM WORLD///////////////////////////

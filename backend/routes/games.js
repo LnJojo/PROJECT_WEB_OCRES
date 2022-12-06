@@ -4,14 +4,6 @@ var router = express.Router();
 const axios = require('axios');
 const baseUrl = 'https://api.twitch.tv/helix/';
 
-const { postGame, getGames, getGame, updateGame, deleteGame } = require("../controllers/games")
-
-router.get("/get/games", getGames) //
-router.get("/get/:gameId", getGame) //
-router.post("/post/add", postGame) //
-router.put("/put/:gameId", updateGame)
-router.delete("/delete/:gameId", deleteGame)
-
 //on crée un tableau pour garder les données
 let games = [];
 let gamesAdded = [];
