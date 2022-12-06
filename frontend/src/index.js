@@ -3,17 +3,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import ReactDOM from "react-dom";
 import Games from "./components/Games";
-import Search from "./components/Search";
-
-
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 import Streams from "./components/Streams";
 import FRStreams from "./components/FRStreams";
-import Clip from "./components/Clip"
-//go into api.js and paste your twitch API key into the variable
-//to test the app properly
+import Clip from "./components/Clip";
+import Search from './components/SearchBar'
+
+
 function App() {
   return (
     <Router>
@@ -25,6 +23,8 @@ function App() {
       <FRStreams />
       <p></p>
       <Clip />
+      <p></p>
+      <Search />
     </Router >
   );
 }
