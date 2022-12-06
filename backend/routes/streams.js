@@ -38,6 +38,12 @@ router.get('/top', async function(req, res, next) {
           for( var i=0; i<5 ; i++){
               topStreams.push(result.data.data[i]);
           }
+
+          topStreams = topStreams.map(stream => {
+            let newURL = stream.thumbnail_url.replace("{width}","300").replace("{height}","300");
+            stream.thumbnail_url = newURL;
+            return stream;
+          })
           console.log(topStreams);
       });
   
@@ -96,7 +102,15 @@ router.get('/game/:game', async function(req, res, next) {
     .then(function (result) {
         //console.log('game', game)
         console.log(result.data.data);
-        streams.push(result.data.data);
+        for( var i=0; i<5 ; i++){
+            streams.push(result.data.data[i]);
+        }
+
+        streams = streams.map(stream => {
+            let newURL = stream.thumbnail_url.replace("{width}","300").replace("{height}","300");
+            stream.thumbnail_url = newURL;
+            return stream;
+          })
         //var test = JSON.parse(result.data);
     });
 

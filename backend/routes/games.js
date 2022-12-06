@@ -34,6 +34,12 @@ router.get('/top', async function(req, res, next) {
         for( var i=0; i<game.data.data.length ; i++){
             games.push(game.data.data[i]);
         }
+
+        games = games.map(game => {
+            let newURL = game.box_art_url.replace("{width}","300").replace("{height}","300");
+            game.box_art_url = newURL;
+            return game;
+        })
         //console.log(games);
     })
 
@@ -66,7 +72,15 @@ router.get('/game/:name', async function(req, res, next) {
         //console.log('game', game)
         if(game.data.data){
             console.log(game.data.data);
-            res.send(game.data.data);
+
+            let newGame = game.data.data;
+            let finalGame = newGame.map(gam => {
+                let newURL = gam.box_art_url.replace("{width}","300").replace("{height}","300");
+                gam.box_art_url = newURL;
+                return gam;
+            })
+
+            res.send(finalGame);
         }
         
     })
@@ -79,17 +93,6 @@ router.get('/game/:name', async function(req, res, next) {
     
 });
     
-
-
-
-
-
-
-
-
-
-
-
 
 
 
