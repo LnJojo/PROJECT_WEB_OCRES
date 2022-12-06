@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -21,5 +22,26 @@ app.use("/users", usersRouter);
 app.use("/games", gamesRouter);
 app.use("/streams", streamsRouter);
 app.use("/clips", clipsRouter);
+
+
+const Connection = async () => {
+
+    try {
+        await mongoose.connect("mongodb+srv://LnJojo:yXPqNPzuXmhaFZvg@cluster0.wqs7oyp.mongodb.net/ProjetWeb?retryWrites=true&w=majority"), {
+
+            useNewUrlParser: true,
+            useFindAndModify: false,
+            useUnifiedTopology: true
+
+        }
+        console.log("connection db on")
+    }
+    catch (error) {
+        console.log("no connection db")
+    }
+}
+
+Connection()
+
 
 module.exports = app;
