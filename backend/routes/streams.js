@@ -7,7 +7,15 @@ const baseUrl = 'https://api.twitch.tv/helix/';
 //on crée un tableau pour garder les données
 let topStreams =[];
 let streams = [];
-let viewers = [];
+
+
+const { postStream, getStreams, getStream, updateStream, deleteStream } = require("../controllers/streams")
+
+router.get("/get/streams", getStreams) //
+router.get("/get/:streamId", getStream) //
+router.post("/post/add", postStream) //
+router.put("/put/:streamId", updateStream)
+router.delete("/delete/:streamId", deleteStream)
 
 
 /* GET users listing. */
