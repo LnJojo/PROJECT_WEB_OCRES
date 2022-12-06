@@ -31,7 +31,7 @@ function Stream() {
                 });
 
                 let newURL = stream.thumbnail_url
-                    .replace("{width}", "300")
+                    .replace("{width}", "400")
                     .replace("{height}", "300");
                 stream.thumbnail_url = newURL;
                 return stream;
@@ -42,7 +42,7 @@ function Stream() {
     }, []);
     return (
         <div>
-            <div className="row row-flex">
+            <div className="row flex-row">
                 <div className="nameRow">Top Streamers monde</div>
                 {channels.map(channel => (
                     <div className="col-lg-2 col-md-6 col-sm-12 mt-5 text-center">
@@ -50,7 +50,7 @@ function Stream() {
                             <img className="card-img-top" src={channel.thumbnail_url} />
                             <div className="card-body">
                                 <div className="card-name">{channel.user_name}</div>
-                                <div className="card-title2 "> {channel.gameName}</div>
+                                <div className="card-title "> {channel.gameName}</div>
                                 <button className="btn btn-success ">
                                     <a
                                         href={"https://twitch.tv/" + channel.user_name}
