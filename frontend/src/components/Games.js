@@ -6,7 +6,7 @@ function Games() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await api.get("https://api.twitch.tv/helix/games/top?first=3");
+            const result = await api.get("https://api.twitch.tv/helix/games/top?first=5");
             //console.log(result.data);
             let dataArray = result.data.data;
             let finalArray = dataArray.map(game => {
@@ -23,9 +23,10 @@ function Games() {
     }, []);
     return (
         <div>
-            <div className="column1">
+            <div className="row ">
+
                 {games.map(game => (
-                    <div className="row-lg-3">
+                    <div className="col-lg-2 col-md-6 col-sm-12 mt-5 text-center">
                         <div className="card">
                             <img className="card-img-top" src={game.box_art_url} alt="test" />
                             <div className="card-body">
@@ -43,9 +44,11 @@ function Games() {
                             </div>
                         </div>
                     </div>
+
                 ))}
             </div>
         </div>
+
     );
 }
 

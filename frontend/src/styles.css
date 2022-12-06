@@ -11,38 +11,20 @@
     color: #fff;
 }
 
-.column {
-    float: left;
-    width: 25%;
-    background-color: blueviolet;
-}
-
-.column1 {
-    margin-left: 5%;
-    float: left;
-    width: 15%;
-}
-
-.column2 {
-    margin-left: 8%;
-    float: left;
-    width: 18%;
-}
-
-/* Stops the float property from affecting content after the columns */
-.columns:after {
-    content: "";
-    display: table;
-    clear: both;
-
-}
-
 .titre {
     font-weight: bold;
     text-align: center;
     font-size: 1.5em;
     color: #fff;
 }
+
+.titreHeader {
+    font-weight: bold;
+    text-align: center;
+    font-size: 3em;
+    color: #fff;
+}
+
 
 .nom {
     font-weight: bold;
@@ -54,7 +36,7 @@
 .card-title {
     font-weight: bold;
     text-align: center;
-    font-size: 1.25em;
+    font-size: 1em;
     color: rgb(0, 0, 0);
 }
 
@@ -71,7 +53,10 @@
     color: rgb(0, 0, 0);
 }
 
+.row {
+    justify-content: center;
+}
 
-.search {
-    float: right;
+.rows {
+    background-color: blueviolet;
 }
