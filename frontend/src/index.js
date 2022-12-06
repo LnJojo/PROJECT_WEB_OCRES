@@ -18,10 +18,10 @@ function App() {
   return (
     <Router>
       <Header />
-      <Search />
-      <p></p>
       <Games />
+      <p></p>
       <Streams />
+      <p></p>
       <FRStreams />
 
     </Router >

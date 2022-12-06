@@ -4,7 +4,7 @@ function FRStreams() {
     const [channels, setChannels] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const result = await api.get("https://api.twitch.tv/helix/streams?first=3&language=fr");
+            const result = await api.get("https://api.twitch.tv/helix/streams?first=5&language=fr");
             let dataArray = result.data.data;
             //console.log(dataArray);
             let gameIDs = dataArray.map(stream => {
@@ -42,9 +42,9 @@ function FRStreams() {
     }, []);
     return (
         <div>
-            <div className="column2">
+            <div className="row">
                 {channels.map(channel => (
-                    <div className="row-lg-3 text-center">
+                    <div className="col-lg-2 col-md-6 col-sm-12 mt-5 text-center">
                         <div className="card">
                             <img className="card-img-top" src={channel.thumbnail_url} />
                             <div className="card-body">
