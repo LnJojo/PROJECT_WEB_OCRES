@@ -10,7 +10,7 @@ const SearchBar = () => {
     const [tableFilter, setTableFilter] = useState([]);
 
     const filterData = (e) => {
-        if (e.target.value != "") {
+        if (e.target.value !== "") {
             setValue(e.target.value);
             const filterTable = dataSource.filter(o => Object.keys(o).some(k =>
                 String(o[k]).toLowerCase().includes(e.target.value.toLowerCase())
@@ -25,7 +25,7 @@ const SearchBar = () => {
     return (
         <div className="container mt-5">
             <div className="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-aria-describedby="basic-addon1" value={value}
+                <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" value={value}
                     onChange={filterData}
                 />
             </div>
