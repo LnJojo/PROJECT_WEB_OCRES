@@ -1,6 +1,9 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+
+const { Schema } = mongoose;
+
 //crypto Schema
-const Games = new mongoose.Schema({
+const GameSchema = new mongoose.Schema({
     id: {
         type: String,
         required: true
@@ -17,5 +20,5 @@ const Games = new mongoose.Schema({
         type: String,
         required: true
     }
-})
-module.exports = mongoose.model("Crypt", Crypt)
+});
+module.exports = mongoose.model("Game", GameSchema);

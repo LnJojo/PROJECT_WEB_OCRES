@@ -10,6 +10,7 @@ var gamesRouter = require("./routes/games");
 var streamsRouter = require("./routes/streams");
 var clipsRouter = require("./routes/clips");
 
+
 var app = express();
 
 app.use(logger("dev"));

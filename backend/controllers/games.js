@@ -1,8 +1,9 @@
 //get crypto
-const Game = require("../models/games")
+const Game = require("../models/games");
 const getGames = async (req, res) => {
     try {
-        const games = await games.find();
+        const games = await Game.find();
+        console.log(games.data);
         res.status(200).json({ success: true, data: games })
     } catch (error) {
         res.status(409).json({ success: false, data: [], error: error })
@@ -24,15 +25,15 @@ const getGame = async (req, res) => {
 //add crypto to DB
 const postGame = async (req, res) => {
     try {
-        const { id } = req.body
-        const { name } = req.body
-        const { box_art_url } = req.body
-        const { igbd_id } = req.body
-        const newCrypto = new Crypt({
-            id: id,
-            name: name,
-            box_art_url: box_art_url,
-            igbd_id: igbd_id
+        const { _id } = req.body
+        const { _name } = req.body
+        const { _box_art_url } = req.body
+        const { _igbd_id } = req.body
+        const newGame = new Game({
+            id: _id,
+            name: _name,
+            box_art_url: _box_art_url,
+            igbd_id: _igbd_id
         })
         const savedGame = await newGame.save()
         res.status(201).json({ success: true, data: savedGame })
@@ -46,12 +47,12 @@ const postGame = async (req, res) => {
 //update data in db
 const updateGame = async (req, res) => {
     const gameId = req.params.gameId;
-    const { id } = req.body
-    const { name } = req.body
-    const { box_art_url } = req.body
-    const { igbd_id } = req.body
+    const { id } = req.body;
+    const { name } = req.body;
+    const { box_art_url } = req.body;
+    const { igbd_id } = req.body;
     try {
-        const game = await Crypt.updateOne({ id: gameId }, {
+        const game = await Game.updateOne({ id: gameId }, {
             $set: {
                 id: id,
                 name: name,
@@ -77,6 +78,7 @@ const deleteGame = async (req, res) => {
         res.status(409).json({ success: false, data: [], error: error })
     }
 }
+
 module.exports = {
     postGame,
     getGames,

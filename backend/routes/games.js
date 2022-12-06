@@ -4,6 +4,8 @@ var router = express.Router();
 const axios = require('axios');
 const baseUrl = 'https://api.twitch.tv/helix/';
 
+const { postGame, getGames, getGame, updateGame, deleteGame } = require("../controllers/games")
+
 router.get("/get/games", getGames) //
 router.get("/get/:gameId", getGame) //
 router.post("/post/add", postGame) //
