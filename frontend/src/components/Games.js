@@ -1,70 +1,50 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import api from "../api";
+import { Link } from "react-router-dom";
 function Games() {
+    const [games, setGames] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await api.get("https://api.twitch.tv/helix/games/top?first=3");
+            //console.log(result.data);
+            let dataArray = result.data.data;
+            let finalArray = dataArray.map(game => {
+                let newURL = game.box_art_url
+                    .replace("{width}", "300")
+                    .replace("{height}", "300");
+                game.box_art_url = newURL;
+                return game;
+            });
+            console.log(finalArray);
+            setGames(finalArray);
+        };
+        fetchData();
+    }, []);
     return (
         <div>
-            <p></p>
-            <div className="row">
-                <div className="col-lg-3">
-                    <div className="card">
-                        <img className="card-img-top" src="https://www.pedagojeux.fr/wp-content/uploads/2019/11/1280x720_LoL.jpg" alt="a" />
-                        <div className="card-body">
-                            <div class="col-md-12 text-center">
-                                <h5 className="card-title" >League of Legends</h5>
-                                <button type="button" class="btn btn-success" >
-                                    Watch
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-3">
-                    <div className="card">
-                        <img className="card-img-top" src="https://clips-media-assets2.twitch.tv/AT-cm%7C257910056-preview-480x272.jpg" alt="faker" />
-                        <div className="card-body">
-                            <div class="col-md-12 text-center">
-                                <h3 className="card-title">Faker</h3>
-                                <h5 className="card-text"> League of Legends</h5>
-                                <div className="card-text">
-                                    15 382 live viewers
-                                </div>
-                                <button type="button" class="btn btn-success" >
-                                    <a>
-                                        Watch Faker's stream
+            <div className="column1">
+                {games.map(game => (
+                    <div className="row-lg-3">
+                        <div className="card">
+                            <img className="card-img-top" src={game.box_art_url} alt="test" />
+                            <div className="card-body">
+                                <div className="card-title">{game.name}</div>
+                                <button className="btn btn-success">
+                                    <a
+                                        href={"https://twitch.tv/directory/game/" + game.name}
+                                        className="link"
+                                        target="_blank"
+                                    >
+                                        <div className="nom">{game.name} streams{" "}</div>
                                     </a>
+
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div className="col-lg-3">
-                    <div className="card">
-                        <img className="card-img-top" src="https://i.ytimg.com/vi/N0zCdgfE29s/maxresdefault.jpg" alt="kameto" />
-                        <div className="card-body">
-                            <div class="col-md-12 text-center">
-                                <h3 className="card-title">Kameto</h3>
-                                <h5 className="card-text">Just chatting</h5>
-                                <div className="card-text">
-                                    10 243 live viewers
-                                </div>
-                                <button type="button" class="btn btn-success" >
-                                    <a>
-                                        Watch Kameto's stream
-                                    </a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
+                ))}
             </div>
-
-
-
         </div>
     );
 }

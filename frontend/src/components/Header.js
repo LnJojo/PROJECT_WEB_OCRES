@@ -16,7 +16,7 @@ function Header() {
 
             </div>
             <div class="column" >
-                <div class="titre">Followers Stats</div>
+                <div class="titre">Search</div>
 
             </div>
         </div>
