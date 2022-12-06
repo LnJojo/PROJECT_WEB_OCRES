@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
     res.send(streams);
 });
   
+///////////////////GET TOP 5 STREAM WORLD///////////////////////////
 router.get('/top', async function(req, res, next) {
       //console.log(req.body); 
       const { name } = req.body;
@@ -52,6 +53,7 @@ router.get('/top', async function(req, res, next) {
       
 });
 
+/////////////GET TOP 5 STREAM BY GAME///////////////////////
 router.get('/game/:game', async function(req, res, next) {
     //console.log(req.body); 
     console.log("params ", req.params);
