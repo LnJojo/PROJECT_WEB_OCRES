@@ -48,11 +48,12 @@ router.get('/top', async function(req, res, next) {
 
 router.get('/game/:game', async function(req, res, next) {
     //console.log(req.body); 
-    const { name } = req.params;
+    console.log("params ", req.params);
+    const {game} = req.params;
 
-    const url1 = baseUrl + "games?name=" + name;
+    const url1 = baseUrl + "games?name=" + game;
     console.log(url1);
-    var gameId;
+    let gameId;
     await axios.get(url1,{
         headers :{
             "Client-id": "aaryfvgelkd55kmd39ohyo16h5ax2d",
@@ -61,15 +62,16 @@ router.get('/game/:game', async function(req, res, next) {
 
     })
     //.then(result => result.json())
-    .then(function (game) {
+    .then(function (result) {
         //console.log('game', game)
-        if(game.data.data){
+        if(result.data.data){
             
             
-            console.log(game.data.data.id);
-            const { id } = game.data.data;
-            gameId = id;
+            //console.log(result.data.data[0].id);
+            //var key = Object.keys(result.data.data);
+            //console.log(key);
             //gameId=game.data.data.id;
+            gameId=result.data.data[0].id;
             console.log("gameId",gameId);
         }
         
@@ -79,7 +81,7 @@ router.get('/game/:game', async function(req, res, next) {
         console.log(error);
       });
 
-    const url2 = baseUrl + "streams?game_id="+ gameId
+    const url2 = baseUrl + "streams?game_id="+gameId
     console.log(url2);
     await axios.get(url2,{
         headers :{
@@ -98,7 +100,6 @@ router.get('/game/:game', async function(req, res, next) {
         //var test = JSON.parse(result.data);
     });
 
-    
     res.send(streams);
     
 });
