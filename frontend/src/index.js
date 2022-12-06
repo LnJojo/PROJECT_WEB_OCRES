@@ -44,7 +44,7 @@ function App() {
       <p></p>
       <Clip />
       <p></p>
-      <SearchBar />
+
 
     </Router >
   );
