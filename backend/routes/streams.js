@@ -23,7 +23,7 @@ const streamer = {
     id:"27115917",
     name:"kamet0"
 }
-stream.push(streamer);
+streams.push(streamer);
 
 
 /* GET users listing. */
