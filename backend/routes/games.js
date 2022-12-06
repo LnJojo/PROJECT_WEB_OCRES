@@ -108,7 +108,7 @@ router.get('/game/:name', async function (req, res, next) {
 
 });
 
-
+//////////////////////         ACCES BDD          ////////////////////////////
 
 
 
