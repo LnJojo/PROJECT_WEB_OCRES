@@ -43,6 +43,7 @@ function Stream() {
     return (
         <div>
             <div className="row row-flex">
+                <div className="nameRow">Top Streamers monde</div>
                 {channels.map(channel => (
                     <div className="col-lg-2 col-md-6 col-sm-12 mt-5 text-center">
                         <div className="card">

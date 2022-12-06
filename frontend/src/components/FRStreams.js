@@ -42,27 +42,30 @@ function FRStreams() {
     }, []);
     return (
         <div>
-            <div className="row">
-                {channels.map(channel => (
-                    <div className="col-lg-2 col-md-6 col-sm-12 mt-5 text-center">
-                        <div className="card">
-                            <img className="card-img-top" src={channel.thumbnail_url} />
-                            <div className="card-body">
-                                <div className="card-name">{channel.user_name}</div>
-                                <div className="card-title2 "> {channel.gameName}</div>
-                                <button className="btn btn-success ">
-                                    <a
-                                        href={"https://twitch.tv/" + channel.user_name}
-                                        className="link"
-                                        target="_blank"
-                                    >
-                                        <div className="nom">{channel.viewer_count} viewers</div>
-                                    </a>
-                                </button>
+            <div className="fond">
+                <div className="row row-flex">
+                    <div className="nameRow">Top Streamers Fr</div>
+                    {channels.map(channel => (
+                        <div className="col-lg-2 col-md-6 col-sm-12 mt-5 text-center">
+                            <div className="card">
+                                <img className="card-img-top" src={channel.thumbnail_url} />
+                                <div className="card-body">
+                                    <div className="card-name">{channel.user_name}</div>
+                                    <div className="card-title2 "> {channel.gameName}</div>
+                                    <button className="btn btn-success ">
+                                        <a
+                                            href={"https://twitch.tv/" + channel.user_name}
+                                            className="link"
+                                            target="_blank"
+                                        >
+                                            <div className="nom">{channel.viewer_count} viewers</div>
+                                        </a>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

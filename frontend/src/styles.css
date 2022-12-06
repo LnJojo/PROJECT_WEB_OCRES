@@ -47,6 +47,13 @@
     color: rgb(0, 0, 0);
 }
 
+.card-name {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+}
+
 .card-title2 {
     text-align: center;
     font-size: 1.25em;
@@ -59,4 +66,16 @@
 
 .rows {
     background-color: blueviolet;
+}
+
+
+.nameRow {
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.6em;
+    color: rgb(0, 0, 0);
+}
+
+.fond {
+    background-color: blanchedalmond;
 }

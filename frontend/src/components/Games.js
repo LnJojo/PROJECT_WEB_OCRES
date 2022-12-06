@@ -23,32 +23,37 @@ function Games() {
     }, []);
     return (
         <div>
-            <div className="row ">
+            <div className="fond">
+                <div className="row ">
+                    <div className="nameRow">Top Catégories</div>
 
-                {games.map(game => (
-                    <div className="col-lg-2 col-md-6 col-sm-12 mt-5 text-center">
-                        <div className="card">
-                            <img className="card-img-top" src={game.box_art_url} alt="test" />
-                            <div className="card-body">
-                                <div className="card-title">{game.name}</div>
-                                <button className="btn btn-success">
-                                    <a
-                                        href={"https://twitch.tv/directory/game/" + game.name}
-                                        className="link"
-                                        target="_blank"
-                                    >
-                                        <div className="nom">{game.name} streams{" "}</div>
-                                    </a>
+                    {games.map(game => (
+                        <div className="col-lg-2 col-md-6 col-sm-12 mt-5 text-center">
 
-                                </button>
+                            <div className="card">
+
+                                <img className="card-img-top" src={game.box_art_url} alt="test" />
+                                <div className="card-body">
+                                    <div className="card-name">{game.name}</div>
+                                    <button className="btn btn-success">
+                                        <a
+                                            href={"https://twitch.tv/directory/game/" + game.name}
+                                            className="link"
+                                            target="_blank"
+                                        >
+                                            <div className="nom">{game.name} streams{" "}</div>
+                                        </a>
+
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                ))}
+                    ))}
+                </div>
+
             </div>
         </div>
-
     );
 }
 
