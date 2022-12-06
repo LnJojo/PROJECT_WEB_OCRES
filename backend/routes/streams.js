@@ -18,6 +18,14 @@ router.put("/put/:streamId", updateStream)
 router.delete("/delete/:streamId", deleteStream)
 
 
+//On met un streamer par défaut dans l'array
+const streamer = {
+    id:"27115917",
+    name:"kamet0"
+}
+stream.push(streamer);
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
