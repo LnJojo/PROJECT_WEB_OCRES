@@ -16,6 +16,7 @@ import Streams from "./components/Streams";
 import FRStreams from "./components/FRStreams";
 import Clip from "./components/Clip";
 import StreamersLive from "./components/StreamersLive";
+import BarChart from "./components/BarChart";
 
 //go into api.js and paste your twitch API key into the variable
 //to test the app properly
@@ -41,11 +42,16 @@ function App() {
       <p></p>
       <Streams />
       <p></p>
+      <BarChart />
+      <p></p>
       <FRStreams />
       <p></p>
       <Clip />
+<<<<<<< HEAD
       <p></p>
       <SearchBar />
+=======
+>>>>>>> 8e400c79a1bcb34a40897941cbd35f02320cabba
     </Router >
   );
 }
