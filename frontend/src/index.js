@@ -46,8 +46,6 @@ function App() {
       <Clip />
       <p></p>
       <SearchBar />
-      <p></p>
-      <StreamersLive/>
     </Router >
   );
 }
