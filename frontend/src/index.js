@@ -15,6 +15,8 @@ import "shards-ui/dist/css/shards.min.css";
 import Streams from "./components/Streams";
 import FRStreams from "./components/FRStreams";
 import Clip from "./components/Clip";
+import StreamersLive from "./components/StreamersLive";
+import BarChart from "./components/BarChart";
 
 //go into api.js and paste your twitch API key into the variable
 //to test the app properly
@@ -40,12 +42,11 @@ function App() {
       <p></p>
       <Streams />
       <p></p>
+      <BarChart />
+      <p></p>
       <FRStreams />
       <p></p>
       <Clip />
-      <p></p>
-
-
     </Router >
   );
 }

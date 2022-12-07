@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../api";
 function Stream() {
     const [channels, setChannels] = useState([]);
+
     useEffect(() => {
         const fetchData = async () => {
             const result = await api.get("https://api.twitch.tv/helix/streams?first=5");
